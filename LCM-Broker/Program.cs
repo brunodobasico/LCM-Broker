@@ -50,25 +50,40 @@ Task HandleMessageReceived(InterceptingPublishEventArgs e)
 {
     try
     {
-        var vin = e.ClientId; // VIN já é o ClientID
-        var payload = JsonSerializer.Deserialize<MotaTelemetria>(
-            Encoding.UTF8.GetString(e.ApplicationMessage.Payload));
+        var vin = e.ClientId;
+        var topic = e.ApplicationMessage.Topic;
+        var payloadStr = Encoding.UTF8.GetString(e.ApplicationMessage.Payload);
 
-        Console.WriteLine($"\n🏍️ Telemetria recebida [VIN: {vin}]");
-        Console.WriteLine($"🔋 Bateria: {payload.Battery}%");
-        Console.WriteLine($"🛣️ Km: {payload.Kilometers}");
-        Console.WriteLine($"📍 Local: {payload.Latitude}, {payload.Longitude}");
-        Console.WriteLine($"⏱️ Hora: {DateTime.Now:HH:mm:ss}");
+        switch (topic)
+        {
+            case "motas/telemetria":
+                var telemetria = JsonSerializer.Deserialize<MotaTelemetria>(payloadStr);
+                Console.WriteLine($"\n🏍️ [Telemetria] VIN: {vin}");
+                Console.WriteLine($"🔋 Bateria: {telemetria.Battery}%");
+                Console.WriteLine($"🛣️ Km: {telemetria.Kilometers}");
+                Console.WriteLine($"📍 Local: {telemetria.Latitude}, {telemetria.Longitude}");
 
-        // Enviar para a base de dados (sem await para não bloquear o processamento MQTT)
-        _ = GuardarTelemetriaNaBD(vin, payload);
+                // Guardar na BD
+                _ = GuardarTelemetriaNaBD(vin, telemetria);
+                break;
+
+            case "motas/alerta":
+                Console.WriteLine($"\n🚨 [Alerta] VIN: {vin} - Mensagem: {payloadStr}");
+                break;
+
+            default:
+                Console.WriteLine($"\n📩 [Outro Tópico] {topic} - Mensagem: {payloadStr}");
+                break;
+        }
     }
     catch (Exception ex)
     {
         Console.WriteLine($"⚠️ Erro ao processar mensagem: {ex.Message}");
     }
+
     return Task.CompletedTask;
 }
+
 
 // Inserir dados no SQL Server
 async Task GuardarTelemetriaNaBD(string vin, MotaTelemetria dados)

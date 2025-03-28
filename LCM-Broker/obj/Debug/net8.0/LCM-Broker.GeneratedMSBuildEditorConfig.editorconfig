@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = LCM_Broker
-build_property.ProjectDir = C:\Users\bruno\Desktop\LCM-Broker\LCM-Broker\
+build_property.ProjectDir = C:\Users\bruno\Desktop\Protocolo-comunicacaoo\LCM-Broker\LCM-Broker\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LCM-Broker")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3bb4276d26fe228e902cdebeee93181c8e3c31bf")]
 [assembly: System.Reflection.AssemblyProductAttribute("LCM-Broker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LCM-Broker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

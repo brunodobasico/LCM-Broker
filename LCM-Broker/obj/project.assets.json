@@ -1717,11 +1717,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bruno\\Desktop\\LCM-Broker\\LCM-Broker\\LCM-Broker.csproj",
+      "projectUniqueName": "C:\\Users\\bruno\\Desktop\\Protocolo-comunicacaoo\\LCM-Broker\\LCM-Broker\\LCM-Broker.csproj",
       "projectName": "LCM-Broker",
-      "projectPath": "C:\\Users\\bruno\\Desktop\\LCM-Broker\\LCM-Broker\\LCM-Broker.csproj",
+      "projectPath": "C:\\Users\\bruno\\Desktop\\Protocolo-comunicacaoo\\LCM-Broker\\LCM-Broker\\LCM-Broker.csproj",
       "packagesPath": "C:\\Users\\bruno\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bruno\\Desktop\\LCM-Broker\\LCM-Broker\\obj\\",
+      "outputPath": "C:\\Users\\bruno\\Desktop\\Protocolo-comunicacaoo\\LCM-Broker\\LCM-Broker\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
